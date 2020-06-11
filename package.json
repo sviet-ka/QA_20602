@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio wdio.conf.js"
+    "test": "npx wdio wdio.conf.js",
+    "cca": "",
+    "pasv": ""
   },
   "keywords": [],
   "author": "",
@@ -23,9 +25,7 @@
     "chai": "^4.2.0",
     "chromedriver": "^83.0.0",
     "prettier": "^2.0.5",
-    "wdio-chromedriver-service": "^6.0.3"
-  },
-  "dependencies": {
+    "wdio-chromedriver-service": "^6.0.3",
     "faker": "^4.1.0"
   }
 }
