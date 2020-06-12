@@ -19,6 +19,10 @@ exports.config = {
     specs: [
         './test/**/specs/*.js'
     ],
+    suites: {
+        pasvAll: ['test/pasv/specs/*.spec.js'],
+        ccaAll: ['test/cca/specs/*.spec.js']
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -39,7 +43,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 3,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:

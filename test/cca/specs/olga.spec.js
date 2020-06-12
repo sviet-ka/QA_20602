@@ -1,3 +1,3 @@
 it('should verify olga', function() {
-    expect(true).toBe(true);
+    expect(true).eq(true);
 } );
