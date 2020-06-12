@@ -15,3 +15,5 @@ class AppPage {
 
 
 }
+
+export default new AppPage();
