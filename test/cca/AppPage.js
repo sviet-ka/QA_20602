@@ -51,6 +51,15 @@ class AppPage {
     return $('button[id="1"]');
   }
 
+  get resetBtnDefaultCounter() {
+    return $('button[class*="reset"]');
+  }
+
+  get resetBtns() {
+    return $$('button[class*="reset"]');
+  }
+
+
 
 
 
@@ -75,6 +84,10 @@ class AppPage {
   }
   deleteCounterById (id) {
     $(`button[id="${id}"]`).click();
+  }
+
+  resetCounter(id) {
+    this.resetBtns[id - 1].click();
   }
 }
 
