@@ -9,8 +9,6 @@ class AppPage {
   get rightPlaceholder() { return $('button[name="positive"]') };
   get leftPlaceholders() { return $$('button[name="negative"]') };
   get rightPlaceholders() { return $$('button[name="positive"]') };
-  get leftResetLFBtn() { return $('button[name="negative"]')};
-  get rightResetLFBtn() { return $('button[name="positive"]')};
   get lF1() { return $('input[name="lower"]') };
   get lF2() { return $('input[name="upper"]') };
   get blackBtn() { return $('button[class*="btn-black"]') };
@@ -24,6 +22,8 @@ class AppPage {
   get counterTitleLabel() { return $('//label[contains(text(),"Enter Counter Title:")]') };
   get initialCountLabel() { return $('//label[contains(text(),"Initial Count:")]') };
   get editCounterNameLabel() { return $('//label[contains(text(),"Edit")]') };
+  get rightResetBtn() { return $('//button[@name="positive" and text()="X"]') };
+  get leftResetBtn() { return $('//button[@name="negative" and text()="X"]') };
   get editCounterNameField() {return $('input[id="1"]') };
   get error() {return $('//div[contains(@class, "alert")]/span')};
 
