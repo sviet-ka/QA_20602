@@ -27,6 +27,8 @@ class AppPage {
   get editCounterNameField() {return $('input[id="1"]') };
   get error() {return $('//div[contains(@class, "alert")]/span')};
 
+
+
   open() {
     browser.url('https://likejean.github.io/homework-5/');
   };
