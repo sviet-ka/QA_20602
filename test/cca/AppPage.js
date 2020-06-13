@@ -21,6 +21,8 @@ class AppPage {
   get initialCountLabel() { return $('//label[contains(text(),"Initial Count:")]') }
   get editCounterNameLabel() { return $('//label[contains(text(),"Edit")]') }
 
+
+
   open() {
     browser.url('https://likejean.github.io/homework-5/');
   }
