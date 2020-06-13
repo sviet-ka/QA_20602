@@ -21,7 +21,8 @@ exports.config = {
     ],
     suites: {
         pasvAll: ['test/pasv/specs/*.spec.js'],
-        ccaAll: ['test/cca/specs/*.spec.js']
+        ccaAll: ['test/cca/specs/*.spec.js'],
+        dmitry: ['test/cca/specs/dmitry.spec.js']
     },
     // Patterns to exclude.
     exclude: [
