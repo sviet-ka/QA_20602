@@ -1,49 +1,39 @@
 import AppPage from '../AppPage';
 
-function removeCounterById(id) {
-  $(`button[id="${id}"]`).click();
-}
-
-function addNewCounter(name, count) {
-  $('input[name="name"]').setValue(name);
-  $('input[name="value"]').setValue(count);
-  $('//button[text()="Add Counter"]').click();
-}
-
 describe('PRACTICE', () => {
   before(() => {
     AppPage.open();
   });
 
   it('should add 2 more counters', () => {
-    addNewCounter('counter2', 0);
-    addNewCounter('counter3', 1000);
+    AppPage.addNewCounter('counter2', 0);
+    AppPage.addNewCounter('counter3', 1000);
   });
 
   it('should check how fields selected', () => {
-    $$('button[name="negative"]')[1].click();
-    $('input[name="lower"]').setValue(2);
+    AppPage.leftPlaceholder.click();
+    AppPage.lF1.setValue(2);
     browser.pause(3000);
   });
 
   it('should remove counter by ID', () => {
-    removeCounterById(3);
-    removeCounterById(2);
-    removeCounterById(1);
+    AppPage.deleteCounterById(3)
+    AppPage.deleteCounterById(2)
+    AppPage.deleteCounterById(1)
     browser.pause(2000);
   });
 
   it('should change value with spinner in LF1', () => {
     browser.refresh();
-    $('button[name="negative"]').click();
-    $('input[name="lower"]').click();
+    AppPage.leftPlaceholder.click();
+    AppPage.lF1.click();
     browser.pause(2000);
     browser.keys('Up arrow');
     browser.pause(2000);
   });
 
   it('should check buttons steps', () => {
-    const buttons = $$('button[class*="btn-black"]').map(el => el.getAttribute('step'));
+    const buttons = AppPage.blackBtns.map(el => el.getAttribute('step'));
     console.log('----------------------');
     console.log(buttons);
     browser.pause(2000);
@@ -53,30 +43,39 @@ describe('PRACTICE', () => {
   it('should check how total value changes', () => {
     browser.refresh();
     for (let i = 0; i < 5; i++) {
-      $$('button[class*="btn-black"]')[5].click();
+      AppPage.blackBtns[5].click();
       browser.pause(700);
     }
-    expect($('span[class*="badge-primary"]').getText()).eq('15');
-    expect($('h3.total-count').getText()).includes('15');
+    expect(AppPage.countValue.getText()).eq('15');
+    expect(AppPage.totalValue.getText()).includes('15');
   });
 
   it('should check reset functionality', () => {
     browser.refresh();
-    $('button[name="negative"]').click();
-    $('button[name="positive"]').click();
-    $('input[name="upper"]').setValue(5);
-    $('input[name="lower"]').setValue(5);
-    $$('button[class*="btn-black"]')[1].click();
-    $('button[class*="reset"]').click();
+    AppPage.leftPlaceholder.click();
+    AppPage.rightPlaceholder.click();
+    AppPage.lF2.setValue(5);
+    AppPage.lF1.setValue(5);
+    AppPage.blackBtns[1].click();
+    AppPage.resetBtnDefaultCounter.click();
     browser.pause(500);
   });
 
   it('should check multiple reset buttons behaviour', () => {
     browser.refresh();
-    addNewCounter('counter2', 500);
-    addNewCounter('counter3', 1000);
-    $$('button[class*="reset"]')[1].click();
-    $$('button[class*="reset"]')[2].click();
+    AppPage.addNewCounter('counter2', 500);
+    AppPage.addNewCounter('counter3', 1000);
+    AppPage.resetBtns[1].click();
+    AppPage.resetBtns[2].click();
     browser.pause(2000);
   });
+
+  it('should delete several counters by id', () => {
+    browser.refresh();
+    AppPage.addNewCounter('counter2', 500);
+    AppPage.addNewCounter('counter3', 1000);
+    AppPage.resetCounterById(3)
+    browser.pause(2000);
+  });
+
 });
