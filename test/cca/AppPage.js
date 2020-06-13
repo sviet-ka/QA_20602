@@ -42,11 +42,11 @@ class AppPage {
 
   counterWithIdDisplayed(i) {
     $(`//h3[text()="${i}. "]`).isDisplayed();
-  };
+  }
 
   clickBlackButton(str) {
     $(`//button[text()="${str}"]`).click();
-  };
+  }
 
   deleteCounterById(id) {
     $(`button[id="${id}"]`).click();
@@ -58,7 +58,7 @@ class AppPage {
 
   editCounterNameById(id, name){
     $(`input[id="${id}"]`).setValue(name);
-  };
+  }
 }
 
 export default new AppPage();
