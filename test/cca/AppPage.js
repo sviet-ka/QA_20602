@@ -29,12 +29,28 @@ class AppPage {
     return $$('button[name="positive"]');
   }
 
-  get blackButton() {
+  get blackBtn() {
     return $('button[class*="btn-black"]');
   }
-  get blackButtons() {
+  get blackBtns() {
     return $$('button[class*="btn-black"]');
   }
+
+  get lF1(){
+    return $('input[name="lower"]');
+  }
+
+  get lF2(){
+    return $('input[name="upper"]');
+  }
+
+  get countValue() {
+    return $('span[class*="badge-primary"]');
+  }
+  get deleteBtnDefaultCounter() {
+    return $('button[id="1"]');
+  }
+
 
 
 
@@ -56,6 +72,9 @@ class AppPage {
 
   clickBlackButton (str) {
     $(`//button[text()="${str}"]`).click();
+  }
+  deleteCounterById (id) {
+    $(`button[id="${id}"]`).click();
   }
 }
 
