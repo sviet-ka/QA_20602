@@ -4,7 +4,7 @@ before(() => AppPage.open());
 beforeEach(() => browser.refresh());
 
 describe('CHECK DEFAULT COUNTER ELEMENTS STATE', () => {
-  it('should verify header is displayed', function () {
+  it('should verify header is displayed', () => {
     expect(AppPage.header.isDisplayed()).true;
   });
 
@@ -51,7 +51,7 @@ describe('CHECK DEFAULT COUNTER ELEMENTS STATE', () => {
   });
 
   it('should verify Reset Btn is displayed and its text is RESET', () => {
-    expect(AppPage.resetBtnDefaultCounter.isDisplayed()).eq(true);
+    expect(AppPage.resetBtnDefaultCounter.isDisplayed()).true;
     expect(AppPage.resetBtnDefaultCounter.getText()).eq('RESET');
   });
 });
