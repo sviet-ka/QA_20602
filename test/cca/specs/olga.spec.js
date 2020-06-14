@@ -174,7 +174,7 @@ describe('olga test cases 45-49 and 101-105', ()=>{
 
     const error = AppPage.error;
 
-    expect(error.getText()).eq('Counter name should be longer than 6 characters');
+    expect(error.getText()).include('Counter name should be longer than 6 characters');
 
   });
 
