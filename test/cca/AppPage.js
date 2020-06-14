@@ -42,8 +42,8 @@ class AppPage {
       this.addNewCounterBtn.click();
   }
 
-  counterWithIdDisplayed(i) {
-    return $(`//h3[contains(text(), "${i}. ")]`).isDisplayed();
+  counterWithIdDisplayed(id) {
+    return $(`//h3[contains(text(), "${id}. ")]`).isDisplayed();
   }
 
   clickBlackButton(str) {
@@ -60,6 +60,10 @@ class AppPage {
 
   editCounterNameById(id, name){
     $(`input[id="${id}"]`).setValue(name);
+  }
+
+  getCounterNameById(id){
+    return $$('h3').map(el => el.getText().split(' ')[1])[id]
   }
 
   getCounterValueByID(id) {
