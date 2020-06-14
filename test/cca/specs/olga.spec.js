@@ -38,7 +38,7 @@ describe('olga test cases 45-49 and 101-105', ()=>{
 
   });
 
-  it('#47 should VeVerify that user is able to change value from the keyboard in LF1 ', () => {
+  it('#47 should Verify that user is able to change value from the keyboard in LF1 ', () => {
 
     AppPage.open();
     browser.pause(3000);
