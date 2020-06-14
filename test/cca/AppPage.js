@@ -59,6 +59,10 @@ class AppPage {
   editCounterNameById(id, name){
     $(`input[id="${id}"]`).setValue(name);
   }
+
+  getCounterValueByID(id) {
+   return this.countValues[id - 1].getText()
+  }
 }
 
 export default new AppPage();
