@@ -1,9 +1,6 @@
 import AppPage from '../AppPage';
 
 describe('olga test cases 45-49 and 101-105', ()=>{
-    // it('should verify olga', function() {
-    //     expect(true).eq(true);
-    // } );
 
   it('#45 should Verify that LF1 accepts 9 if LF2 is ? default', () => {
 
@@ -144,9 +141,43 @@ describe('olga test cases 45-49 and 101-105', ()=>{
 
     browser.pause(2000);
 
-    expect(AppPage.newCounterValue.getValue()).eq();
+    expect(AppPage.newCounterValue.getValue()).eq('');
 
   });
+
+  it('#104 Verify that the user cannot add new counter without filling Add Name Field ', () => {
+
+    AppPage.open();
+    browser.refresh();
+
+// Steps
+
+    AppPage.newCounterName.clearValue();
+    AppPage.addNewCounter('New Counter', 10);
+    browser.pause(2000);
+
+    expect(AppPage.addNewCounterBtn.isEnabled()).eq(false);
+
+  });
+
+  it('#105 Verify that the user will get the correct error message if Add Name Field less than 6 characters ', () => {
+
+    AppPage.open();
+    browser.refresh();
+
+// Steps
+
+    AppPage.newCounterName.clearValue();
+    AppPage.addNewCounterBtn.click();
+
+    browser.pause(2000);
+
+    const error = AppPage.error;
+
+    expect(error.getText()).eq('Counter name should be longer than 6 characters');
+
+  });
+
 });
 
 
