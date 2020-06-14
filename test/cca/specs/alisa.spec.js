@@ -68,8 +68,9 @@ describe('TEST LIMIT FIELD 2 (LF2)', () => {
   });
   it('should verify user is able to change value from the keyboard in LF2', () => {
     browser.refresh();
-    AppPage.rightPlaceholder.click();
-    AppPage.lF2.setValue(7);
+    AppPage.rightPlaceholder.doubleClick();
+    browser.keys('Backspace')
+    browser.keys('7')
     expect(AppPage.lF2.getValue()).eq('7');
   });
 });
