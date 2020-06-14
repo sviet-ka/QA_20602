@@ -2,12 +2,12 @@ import AppPage from '../AppPage';
 
 describe('olga test cases 45-49 and 101-105', ()=>{
 
-  it('#45 should Verify that LF1 accepts 9 if LF2 is ? default', () => {
+  it('#45 should Verify that LF1 accepts 9 if LF2 is ? empty', () => {
 
     AppPage.open();
     browser.pause(3000);
     AppPage.rightPlaceholder.click();
-    AppPage.lF2.click();
+    AppPage.lF2.clearValue();
     AppPage.leftPlaceholder.click();
     AppPage.lF1.click();
     browser.keys('Backspace');
@@ -24,12 +24,12 @@ describe('olga test cases 45-49 and 101-105', ()=>{
     browser.pause(3000);
     AppPage.rightPlaceholder.click();
     AppPage.lF2.click();
-    // AppPage.lF2.click().setValue(6);
+    // AppPage.lF2.click().setValue('6');
     browser.keys('Backspace');
     browser.keys('6');
     AppPage.leftPlaceholder.click();
     AppPage.lF1.click();
-    // AppPage.lF1.click().setValue(5);
+    // AppPage.lF1.click().setValue('5');
     browser.keys('Backspace');
     browser.keys('5');
     browser.pause(3000);
@@ -97,15 +97,15 @@ describe('olga test cases 45-49 and 101-105', ()=>{
     AppPage.addNewCounter('counter4', '-10');
 
 // Steps
-    AppPage.deleteCounterById(1);
+
     AppPage.deleteCounterById(2);
     browser.pause(2000);
 
-    expect(AppPage.totalValue.getValue()).eq('20');
+    expect(AppPage.totalValue.getText()).eq('Total: 30');
 
   });
 
-  it('#102 Verify that click on the Delete Btn to delete an entire counter ', () => {
+  it('#102 Verify that Default Value Field does not accepts  \'.\'(dot) ', () => {
 
     AppPage.open();
     browser.refresh();
@@ -152,8 +152,14 @@ describe('olga test cases 45-49 and 101-105', ()=>{
 
 // Steps
 
-    AppPage.newCounterName.clearValue();
-    AppPage.addNewCounter('New Counter', 10);
+    AppPage.addNewCounter('New Counter', '10');
+    AppPage.newCounterName.click();
+    while (AppPage.newCounterName.getValue() !== '') {
+      browser.keys('Backspace');
+      browser.keys('Delete');
+      browser.pause(500);
+    }
+
     browser.pause(2000);
 
     expect(AppPage.addNewCounterBtn.isEnabled()).eq(false);
@@ -167,14 +173,18 @@ describe('olga test cases 45-49 and 101-105', ()=>{
 
 // Steps
 
-    AppPage.newCounterName.clearValue();
-    AppPage.addNewCounterBtn.click();
-
+    AppPage.newCounterName.click();
+    // AppPage.addNewCounterBtn.click();
+    while (AppPage.newCounterName.getValue() !== '') {
+      browser.keys('Backspace');
+      browser.keys('Delete');
+      browser.pause(500);
+    }
     browser.pause(2000);
 
     const error = AppPage.error;
 
-    expect(error.getText()).include('Counter name should be longer than 6 characters');
+    expect(error.getText()).includes('ERROR: Counter name should be longer than 6 characters');
 
   });
 
