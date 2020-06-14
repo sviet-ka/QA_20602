@@ -7,7 +7,7 @@ describe('iurii part', () => {
 it('should be Error is thrown when value in LF1 is greater then the current value in LF2 ', () => {
   AppPage.leftPlaceholder.click();
   AppPage.lF1.setValue(5);
-  expect($('.span:nth-child(1)').getText()).includes('Upper Limit Must be GREATER than Lower Limit');
+  expect(AppPage.error.getText()).eq('ERROR: Upper Limit Must be GREATER than Lower Limit');
 
 });
 
@@ -16,14 +16,14 @@ it('should be Error is thrown when value in LF1 is greater then the current valu
     browser.keys('Backspace');
     browser.pause(1000);
     AppPage.lF1.setValue(2.3);
-    expect($('.span:nth-child(1)').getText()).includes('Input must be an INTEGER');
+    expect(AppPage.error.getText()).eq('ERROR: Input must be an INTEGER');
   });
 
   it('should that LF1 doesnt accept negative integers', ()=> {
     AppPage.leftPlaceholder.click();
     browser.keys('Backspace');
     AppPage.lF1.setValue(-2);
-    expect($('.span:nth-child(1)').getText()).includes('Must be greater than zero');
+    expect(AppPage.error.getText()).eq('ERROR: Must be greater than zero');
   });
 
   it('should LF1 doesn’t accept special characters ', ()=> {
@@ -31,14 +31,14 @@ it('should be Error is thrown when value in LF1 is greater then the current valu
     browser.keys('Backspace');
     browser.pause(1000);
     AppPage.lF1.setValue('+');
-    expect($('.span:nth-child(1)').getText()).includes('Must be greater than zero');
+    expect(AppPage.error.getText()).eq('ERROR: Must be greater than zero');
   });
 
   it('should LF1 doesn’t accept invalid integer ', ()=> {
     AppPage.leftPlaceholder.click();
     browser.keys('Backspace');
     AppPage.lF1.setValue(10);
-    expect($('.span:nth-child(1)').getText()).includes('Input must be an INTEGER');
+    expect(AppPage.error.getText()).eq('ERROR: Input must be an INTEGER');
   });
 
   it('should Delete Btn is enable by default ', ()=> {
