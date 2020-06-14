@@ -18,6 +18,7 @@ class AppPage {
   get countValue() { return $('span[class*="badge-primary"]') }
   get countValues() { return $$('span[class*="badge-primary"]') }
   get resetBtns() { return $$('button[class*="reset"]') }
+
   get newCounterName() { return $('input[name="name"]') }
   get newCounterValue() { return $('input[name="value"]') }
   get addNewCounterBtn() { return $('//button[text()="Add Counter"]') }
@@ -27,6 +28,7 @@ class AppPage {
   get rightResetBtn() { return $('//button[@name="positive" and text()="X"]') }
   get leftResetBtn() { return $('//button[@name="negative" and text()="X"]') }
   get editCounterNameField() {return $('input[id="1"]') }
+
   get error() {return $('//div[contains(@class, "alert")]/span')}
 
 
@@ -61,7 +63,7 @@ class AppPage {
   }
 
   getCounterValueByID(id) {
-   return this.countValues[id - 1].getText()
+    return this.countValues[id - 1].getText()
   }
 }
 
