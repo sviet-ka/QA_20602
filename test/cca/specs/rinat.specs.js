@@ -4,12 +4,9 @@ before(() => {
   AppPage.open();
 });
 
-  it('should Verify that Add buttons are displayed', () => {
-    expect(AppPage.blackBtn.isDisplayed()).true;
-  });
-
-  it('should Verify that default Add buttons are 1,  2,  3', () => {
-  expect(AppPage.blackBtn.getText()).eq('-1');
+  it('should Verify that Add buttons are displayed and equal 1,  2,  3', () => {
+    const addButtons = AppPage.blackBtns.map(el => el.getText()).filter(el => el > 0);
+    expect(addButtons).deep.equal(['1', '2', '3'])
   });
 
   it('should Verify that Enter Initial Count Label is displayed', () => {
@@ -28,6 +25,8 @@ before(() => {
     browser.refresh();
     AppPage.rightPlaceholder.click();
     AppPage.lF2.setValue(10);
+    expect(AppPage.lF2.getValue()).eq('');
+    expect(AppPage.error.getText()).eq('ERROR: Lower Limit Must be Less than Upper Limit');
     browser.pause(3000);
   })
 
@@ -35,6 +34,8 @@ before(() => {
     browser.refresh();
     AppPage.rightPlaceholder.click();
     AppPage.lF2.setValue('+');
+    expect(AppPage.lF2.getValue()).eq('');
+    expect(AppPage.error.getText()).eq('ERROR: Input must be an INTEGER');
     browser.pause(3000);
   })
 
@@ -43,12 +44,13 @@ before(() => {
     AppPage.leftPlaceholder.click();
     AppPage.lF1.setValue(4);
     AppPage.rightPlaceholder.click();
-    AppPage.lF2.setValue(5);
+    expect(AppPage.lF2.isEnabled()).true;
   })
 
-  it('should Verify that 6 black square solid buttons (-1, -2, -3, 1, 2, 3, negative on the left side / positive on the right) by default', () => {
+  it('should Verify that 6 black square solid buttons (-1, -2, -3, 1, 2, 3) by default', () => {
     browser.refresh();
     expect(AppPage.blackBtns.length).eq(6);
+    expect(AppPage.blackBtns.map(el => el.getText())).deep.equal(['-1', '-2', '-3', '1', '2', '3']);
   })
 
   it('should Verify that the buttons are displayed according to the range', () => {
@@ -57,20 +59,17 @@ before(() => {
     AppPage.lF1.setValue(2);
     AppPage.rightPlaceholder.click();
     AppPage.lF2.setValue(4);
-    expect(AppPage.blackBtn.getText()).eq('-2');
-    expect(AppPage.blackBtn.getText()).eq('-3');
-    expect(AppPage.blackBtn.getText()).eq('-4');
-    expect(AppPage.blackBtn.getText()).eq('2');
-    expect(AppPage.blackBtn.getText()).eq('3');
-    expect(AppPage.blackBtn.getText()).eq('4');
+    expect(AppPage.blackBtns.map(el => el.getText())).deep.equal(['-2', '-3', '-4', '2', '3', '4']);
   })
 
   it('should Verify that the Error for non-integer values displays', () => {
     browser.refresh();
-    AppPage.newCounterValue.clearValue();
-    AppPage.newCounterValue.setValue('.');
+    AppPage.newCounterValue.click();
+    while (AppPage.newCounterValue.getValue() !== '') {
+      browser.keys('Backspace');
+    }
+    browser.keys('.');
     expect(AppPage.newCounterValue.getValue()).eq('');
-
+    browser.waitUntil(() => AppPage.error.getText() === 'ERROR: Input must be an Integer')
     browser.pause(3000);
   })
-
