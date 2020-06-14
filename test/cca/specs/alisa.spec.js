@@ -34,7 +34,7 @@ describe('TEST LIMIT FIELD 2 (LF2)', () => {
     AppPage.rightPlaceholder.click();
     AppPage.lF2.click();
     browser.keys('Backspace');
-    expect($('//div[contains(@class,"alert")]').isDisplayed()).false;
+    expect(AppPage.error.isDisplayed()).false;
   });
 
   it('should verify LF2 accepts 5 if LF1 is empty', () => {
