@@ -97,7 +97,6 @@ describe('LIMIT FIELDS BEHAVIOUR', () => {
   });
 
   it('should verify that LF2 field displays "Change step options?" placeholder bu default', () => {
-    browser.refresh();
     expect(AppPage.rightPlaceholder.isDisplayed()).true;
     expect(AppPage.rightPlaceholder.getText()).eq('CHANGE STEP OPTIONS?');
   });
@@ -117,7 +116,6 @@ describe('LIMIT FIELDS BEHAVIOUR', () => {
     AppPage.leftPlaceholder.click();
     AppPage.lF1.clearValue();
     AppPage.rightPlaceholder.click();
-    browser.pause(500);
     AppPage.lF2.setValue(5);
     expect(AppPage.lF2.getValue()).eq('5');
   });
