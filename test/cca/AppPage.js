@@ -77,7 +77,6 @@ class AppPage {
   lastCounterId(){
     return $$('.container-fluid.counter-wrapper').length;
   }
-
 }
 
 export default new AppPage();
