@@ -141,7 +141,7 @@ describe('LIMIT FIELDS BEHAVIOUR', () => {
     AppPage.rightPlaceholder.click();
     AppPage.lF2.click();
     browser.keys('Up arrow');
-    expect(AppPage.lF2.getValue()).eq(4);
+    expect(AppPage.lF2.getValue()).eq('4');
   });
 
   it('should verify Reset Limit Field Btn in LF2, resets it to default state (3) (placeholder appears)', () => {
