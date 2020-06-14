@@ -79,7 +79,14 @@ describe('PRACTICE', () => {
   // });
   it('should ', function() {
     browser.refresh();
-    expect(AppPage.counterWithIdDisplayed(1)).true
+    AppPage.addNewCounter('xxxxxxxxx', '150')
+    AppPage.addNewCounter('xxxxxxxxx', '150')
+    AppPage.addNewCounter('xxxxxxxxx', '400')
+
+    AppPage.deleteCounterById(AppPage.lastCounterId())
+    browser.pause(1000)
+
+    expect(AppPage.numberOfCounters()).eq(3);
   });
 
 });

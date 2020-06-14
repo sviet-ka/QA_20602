@@ -65,6 +65,15 @@ class AppPage {
   getCounterValueByID(id) {
     return this.countValues[id - 1].getText()
   }
+
+  numberOfCounters(){
+    return $$('.container-fluid.counter-wrapper').length;
+  }
+
+  lastCounterId(){
+    return $$('.container-fluid.counter-wrapper').length;
+  }
+
 }
 
 export default new AppPage();
