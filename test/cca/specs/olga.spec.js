@@ -92,9 +92,9 @@ describe('olga test cases 45-49 and 101-105', ()=>{
     AppPage.open();
     browser.refresh();
 // Preconditions
-    AppPage.addNewCounter('counter2', 30);
-    AppPage.addNewCounter('counter3', 40);
-    AppPage.addNewCounter('counter4', -10);
+    AppPage.addNewCounter('counter2', '30');
+    AppPage.addNewCounter('counter3', '40');
+    AppPage.addNewCounter('counter4', '-10');
 
 // Steps
     AppPage.deleteCounterById(1);
