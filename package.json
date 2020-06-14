@@ -9,7 +9,15 @@
     "cca-smoke": "npx wdio wdio.conf.js --suite ccaSmoke",
     "pasv": "npx wdio wdio.conf.js --suite pasv",
     "testDmitry": "wdio wdio.conf.js --spec test/cca/specs/dmitry.spec.js",
-    "testAlex": "wdio wdio.conf.js --spec test/cca/specs/alexander.spec.js"
+    "testAlex": "wdio wdio.conf.js --spec test/cca/specs/alexander.spec.js",
+    "testAlisa": "wdio wdio.conf.js --spec test/cca/specs/alisa.spec.js",
+    "testAsylgul": "wdio wdio.conf.js --spec test/cca/specs/asylgul.spec.js",
+    "testIurii": "wdio wdio.conf.js --spec test/cca/specs/iurii.spec.js",
+    "testOlga": "wdio wdio.conf.js --spec test/cca/specs/olga.spec.js",
+    "testPolina": "wdio wdio.conf.js --spec test/cca/specs/pbeylina.spec.js",
+    "testRinat": "wdio wdio.conf.js --spec test/cca/specs/rinat.spec.js",
+    "testSveta": "wdio wdio.conf.js --spec test/cca/specs/sveta.spec.js",
+    "testYelena": "wdio wdio.conf.js --spec test/cca/specs/yelena.spec.js"
   },
   "keywords": [],
   "author": "",
