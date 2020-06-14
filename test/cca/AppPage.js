@@ -41,7 +41,7 @@ class AppPage {
   }
 
   counterWithIdDisplayed(i) {
-    $(`//h3[text()="${i}. "]`).isDisplayed();
+    return $(`//h3[contains(text(), "${i}. ")]`).isDisplayed();
   }
 
   clickBlackButton(str) {

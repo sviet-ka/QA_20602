@@ -78,7 +78,8 @@ describe('PRACTICE', () => {
   //   browser.pause(2000);
   // });
   it('should ', function() {
-    expect(AppPage.getCounterNameById(1)).eq('Default Counter')
+    browser.refresh();
+    expect(AppPage.counterWithIdDisplayed(1)).true
   });
 
 });
