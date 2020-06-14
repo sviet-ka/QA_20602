@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "npx wdio wdio.conf.js",
-    "cca": "npx wdio wdio.conf.js --suite ccaAll",
-    "pasv": "npx wdio wdio.conf.js --suite pasvAll",
+    "cca": "npx wdio wdio.conf.js --suite cca",
+    "cca-smoke": "npx wdio wdio.conf.js --suite ccaSmoke",
+    "pasv": "npx wdio wdio.conf.js --suite pasv",
     "testDmitry": "wdio wdio.conf.js --spec test/cca/specs/dmitry.spec.js",
     "testAlex": "wdio wdio.conf.js --spec test/cca/specs/alexander.spec.js"
   },

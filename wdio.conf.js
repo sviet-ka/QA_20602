@@ -20,8 +20,9 @@ exports.config = {
         './test/**/specs/*.js'
     ],
     suites: {
-        pasvAll: ['test/pasv/specs/*.spec.js'],
-        ccaAll: ['test/cca/specs/*.spec.js'],
+        pasv: ['test/pasv/specs/*.spec.js'],
+        cca: ['test/cca/specs/*.spec.js'],
+        ccaSmoke: ['test/cca/specs/*.smoke.js'],
         dmitry: ['test/cca/specs/dmitry.spec.js']
     },
     // Patterns to exclude.
