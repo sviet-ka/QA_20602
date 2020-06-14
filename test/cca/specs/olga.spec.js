@@ -11,10 +11,10 @@ describe('olga test cases 45-49 and 101-105', ()=>{
     AppPage.leftPlaceholder.click();
     AppPage.lF1.click();
     browser.keys('Backspace');
-    browser.keys(9);
+    browser.keys('9');
     browser.pause(3000);
 
-    expect(AppPage.lF1.getValue()).eq(9);
+    expect(AppPage.lF1.getValue()).eq('9');
 
   });
 
@@ -26,15 +26,15 @@ describe('olga test cases 45-49 and 101-105', ()=>{
     AppPage.lF2.click();
     // AppPage.lF2.click().setValue(6);
     browser.keys('Backspace');
-    browser.keys(6);
+    browser.keys('6');
     AppPage.leftPlaceholder.click();
     AppPage.lF1.click();
     // AppPage.lF1.click().setValue(5);
     browser.keys('Backspace');
-    browser.keys(5);
+    browser.keys('5');
     browser.pause(3000);
 
-    expect(AppPage.lF1.getValue()).eq(5);
+    expect(AppPage.lF1.getValue()).eq('5');
 
   });
 
@@ -45,14 +45,14 @@ describe('olga test cases 45-49 and 101-105', ()=>{
     AppPage.rightPlaceholder.click();
     AppPage.lF2.click();
     browser.keys('Backspace');
-    browser.keys(6);
+    browser.keys('6');
     AppPage.leftPlaceholder.click();
     AppPage.lF1.click();
     browser.keys('Backspace');
-    browser.keys(5);
+    browser.keys('5');
     browser.pause(3000);
 
-    expect(AppPage.lF1.getValue()).eq(5);
+    expect(AppPage.lF1.getValue()).eq('5');
 
   });
 
@@ -66,7 +66,7 @@ describe('olga test cases 45-49 and 101-105', ()=>{
     browser.keys('Up arrow');
     browser.pause(2000);
 
-    expect(AppPage.lF1.getValue()).eq(2);
+    expect(AppPage.lF1.getValue()).eq('2');
 
   });
 
@@ -83,7 +83,7 @@ describe('olga test cases 45-49 and 101-105', ()=>{
     }
     browser.pause(2000);
 
-    expect(AppPage.lF1.getValue()).eq(9);
+    expect(AppPage.lF1.getValue()).eq('9');
 
   });
 
@@ -92,16 +92,16 @@ describe('olga test cases 45-49 and 101-105', ()=>{
     AppPage.open();
     browser.refresh();
 // Preconditions
-    AppPage.addNewCounter('counter2', 30);
-    AppPage.addNewCounter('counter3', 40);
-    AppPage.addNewCounter('counter4', -10);
+    AppPage.addNewCounter('counter2', '30');
+    AppPage.addNewCounter('counter3', '40');
+    AppPage.addNewCounter('counter4', '-10');
 
 // Steps
     AppPage.deleteCounterById(1);
     AppPage.deleteCounterById(2);
     browser.pause(2000);
 
-    expect(AppPage.totalValue.getValue()).eq(20);
+    expect(AppPage.totalValue.getValue()).eq('20');
 
   });
 
@@ -120,7 +120,7 @@ describe('olga test cases 45-49 and 101-105', ()=>{
 
     browser.pause(2000);
 
-    expect(AppPage.newCounterValue.getValue()).eq(empty());
+    expect(AppPage.newCounterValue.getValue()).eq('');
 
   });
 
@@ -174,7 +174,7 @@ describe('olga test cases 45-49 and 101-105', ()=>{
 
     const error = AppPage.error;
 
-    expect(error.getText()).eq('Counter name should be longer than 6 characters');
+    expect(error.getText()).include('Counter name should be longer than 6 characters');
 
   });
 
