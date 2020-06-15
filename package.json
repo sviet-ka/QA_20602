@@ -7,7 +7,7 @@
     "test": "npx wdio wdio.conf.js",
     "cca": "npx wdio wdio.conf.js --suite cca",
     "cca-smoke": "npx wdio wdio.conf.js --suite ccaSmoke",
-    "cca-smoke-report": "npx wdio wdio.conf.js --suite ccaSmoke && allure generate allure-results --clean && allure open",
+    "report": "allure generate allure-results --clean && allure open",
     "pasv": "npx wdio wdio.conf.js --suite pasv",
     "testDmitry": "wdio wdio.conf.js --spec test/cca/specs/dmitry.spec.js",
     "testAlex": "wdio wdio.conf.js --spec test/cca/specs/alexander.spec.js",
