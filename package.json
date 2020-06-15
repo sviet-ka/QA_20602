@@ -7,6 +7,7 @@
     "test": "npx wdio wdio.conf.js",
     "cca": "npx wdio wdio.conf.js --suite cca",
     "cca-smoke": "npx wdio wdio.conf.js --suite ccaSmoke",
+    "cca-smoke-report": "npx wdio wdio.conf.js --suite ccaSmoke && allure generate allure-results --clean && allure open",
     "pasv": "npx wdio wdio.conf.js --suite pasv",
     "testDmitry": "wdio wdio.conf.js --spec test/cca/specs/dmitry.spec.js",
     "testAlex": "wdio wdio.conf.js --spec test/cca/specs/alexander.spec.js",
@@ -27,16 +28,18 @@
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "@babel/register": "^7.10.1",
+    "@wdio/allure-reporter": "^6.1.14",
     "@wdio/cli": "^6.1.15",
     "@wdio/local-runner": "^6.1.14",
     "@wdio/mocha-framework": "^6.1.14",
     "@wdio/spec-reporter": "^6.1.14",
     "@wdio/sync": "^6.1.14",
+    "allure-commandline": "^2.13.0",
     "axios": "^0.19.2",
     "chai": "^4.2.0",
     "chromedriver": "^83.0.0",
+    "faker": "^4.1.0",
     "prettier": "^2.0.5",
-    "wdio-chromedriver-service": "^6.0.3",
-    "faker": "^4.1.0"
+    "wdio-chromedriver-service": "^6.0.3"
   }
 }
