@@ -3,15 +3,19 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
+pr: none
+# trigger: none
+
 trigger:
 - master
 
 schedules:
-- cron: "48 17 * * *"
+- cron: "30 19 * * *"
   displayName: Daily midnight build
   branches:
     include:
     - master
+  always: true
 
 pool:
   vmImage: 'ubuntu-latest'
